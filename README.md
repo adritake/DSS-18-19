@@ -4,14 +4,14 @@ Repositorio de la asignatura DSS del Máster en Ingeniería informática de la U
 ## Introducción a las prácticas
 Breve demo de creación de managed beans y cómo inyectar un managed bean en otro.
 
-[Repositorio](https://github.com/adritake/DSS-18-19/tree/master/holamundo)
+[Introducción](https://github.com/adritake/DSS-18-19/tree/master/holamundo)
 
 ## Práctica 1
 Crear un simulador de un motor con un managed bean con un patrón interceptor.
 
 Para que la práctica funcione, el managed Bean motorBean tiene que estar funcionando en un servidor de apache Tomcat.
 
-[Repositorio](https://github.com/adritake/DSS-18-19/tree/master/practica1DSS)
+[Práctica 1](https://github.com/adritake/DSS-18-19/tree/master/practica1DSS)
 
 ## Práctica 2
 Utilizando JPA, se pide programar una aplicación para crear Listas de Correo que utilizará un canal (DBUsuario) para escribir los datos de los usuarios de una Lista de Correo en una base de datos relacional, de acuerdo con las siguientes condiciones:
@@ -19,7 +19,7 @@ Utilizando JPA, se pide programar una aplicación para crear Listas de Correo qu
 - Crear una aplicación de “Administración de Usuarios”, que permita: visualizar todos los usuarios incluídos en la BD, actualizar los usuarios existentes y eliminar los usuarios almacenados en la mencionada tabla usuario.
 - Ejecutar la aplicación como un proyecto Java de Eclipse y utilizar dicha aplicación para añadir usuarios a la lista de correo.
 
-[Repositorio](https://github.com/adritake/DSS-18-19/tree/master/practica2DSS)
+[Práctica 2](https://github.com/adritake/DSS-18-19/tree/master/practica2DSS)
 
 ## Práctica 3
 
@@ -34,4 +34,14 @@ LLamamos 'CRUD' (Create, Read, Update, Delete) a un Servicio WEB (WS) que tiene 
 
 El formulario Web permitirá hacer POST en datos nuevos, los cuales son incluidos en la base de datos del servicio: tenemos que crear una página `.html` en la carpeta *WebContent* de nuestro proyecto Eclipse.
 
-[Repositorio](https://github.com/adritake/DSS-18-19/tree/master/practica3DSS)
+[Práctica 3](https://github.com/adritake/DSS-18-19/tree/master/practica3DSS)
+
+## Práctica 4
+### Ejercicio 1
+**Por hacer**
+
+### Ejercicio 2
+Orquestar, de forma simplificada, el mercadeo entre un comprador y un vendedor de un producto solicitado,de acuerdo con el diagrama de interacción que se muestra en la siguiente figura. El compradorcomienza pidiendo un precio al vendedor y el vendedor responde con un precio para el producto o unaexcepción si no conoce el artículo que le demandan o no estuviera disponible en el almacén. El compradorcontinua pidiendo precio al vendedor y entra en un comportamiento repetitivo con actualizaciones(del precio del artículo) hasta que decide comprar el artículo cuando considera que se le ofrece el mejorprecio. Se pide en este ejercicio desarrollar la descripción completa de la orquestación que se ha descrito anteriormente entre el comprador y el vendedor.
+
+[Ejercicio 2](https://github.com/adritake/DSS-18-19/tree/master/practica4DSS_2)
+[Imágenes](https://github.com/adritake/DSS-18-19/tree/master/practica4DSS_2/img) del ejercicio.
