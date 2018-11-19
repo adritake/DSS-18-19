@@ -38,10 +38,11 @@ El formulario Web permitirá hacer POST en datos nuevos, los cuales son incluido
 
 ## Práctica 4
 ### Ejercicio 1
-**Por hacer**
+*Por hacer*
 
 ### Ejercicio 2
 Orquestar, de forma simplificada, el mercadeo entre un comprador y un vendedor de un producto solicitado,de acuerdo con el diagrama de interacción que se muestra en la siguiente figura. El compradorcomienza pidiendo un precio al vendedor y el vendedor responde con un precio para el producto o unaexcepción si no conoce el artículo que le demandan o no estuviera disponible en el almacén. El compradorcontinua pidiendo precio al vendedor y entra en un comportamiento repetitivo con actualizaciones(del precio del artículo) hasta que decide comprar el artículo cuando considera que se le ofrece el mejorprecio. Se pide en este ejercicio desarrollar la descripción completa de la orquestación que se ha descrito anteriormente entre el comprador y el vendedor.
 
 [Ejercicio 2](https://github.com/adritake/DSS-18-19/tree/master/practica4DSS_2)
+
 [Imágenes](https://github.com/adritake/DSS-18-19/tree/master/practica4DSS_2/img) del ejercicio.
