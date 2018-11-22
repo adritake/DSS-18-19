@@ -38,7 +38,11 @@ El formulario Web permitirá hacer POST en datos nuevos, los cuales son incluido
 
 ## Práctica 4
 ### Ejercicio 1
-*Por hacer*
+Especificar utilizando BPEL el proceso de negocio (cuyo diagrama de actividad se muestra en la siguiente figura) y que se describe informalmente como sigue: “El cliente invoca al proceso de negocio, especificando el nombre del empleado, el destino de su viaje, la fecha de salida, y la fecha de regreso. El proceso de negocio BPEL comprueba primero el status del empleado para viajar (clase turista, business, avión privado); suponemos que existe un servicio Web contra el que se puede realizar esta consulta. Después, el proceso BPEL comprobará el precio del billete con 2 líneas aéreas: Iberia y Vueling. Supongamos otra vez que ambas compañías proporcionan un servicio Web contra el que se pueden realizar estas gestiones. El proceso BPEL seleccionará el precio más bajo y devolverá un plan de viaje al cliente”.
+
+[Ejercicio 1](https://github.com/adritake/DSS-18-19/tree/master/practica4DSS_1)
+
+[Imagenes](https://github.com/adritake/DSS-18-19/tree/master/practica4DSS_1/img)
 
 ### Ejercicio 2
 Orquestar, de forma simplificada, el mercadeo entre un comprador y un vendedor de un producto solicitado,de acuerdo con el diagrama de interacción que se muestra en la siguiente figura. El compradorcomienza pidiendo un precio al vendedor y el vendedor responde con un precio para el producto o unaexcepción si no conoce el artículo que le demandan o no estuviera disponible en el almacén. El compradorcontinua pidiendo precio al vendedor y entra en un comportamiento repetitivo con actualizaciones(del precio del artículo) hasta que decide comprar el artículo cuando considera que se le ofrece el mejorprecio. Se pide en este ejercicio desarrollar la descripción completa de la orquestación que se ha descrito anteriormente entre el comprador y el vendedor.
