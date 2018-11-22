@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:cliente="http://cliente" xmlns:iberiaBilletes="http://iberiaBilletes" xmlns:reservaVuelos="http://reservaVuelos" xmlns:statusEmpleados="http://statusEmpleados" xmlns:vuelingBilletes="http://vuelingBilletes">
+  <process name="cliente:Cliente">
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="cliente:ClienteService" port="ClientePort"/>
+    </provide>
+    <invoke partnerLink="ReservaVuelosPL">
+      <service name="reservaVuelos:ReservaVuelosService" port="ReservaVuelosPort"/>
+    </invoke>
+  </process>
+  <process name="reservaVuelos:ReservaVuelos">
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="reservaVuelos:ReservaVuelosService" port="ReservaVuelosPort"/>
+    </provide>
+    <invoke partnerLink="StatusPL">
+      <service name="statusEmpleados:StatusEmpleadosService" port="StatusEmpleadosPort"/>
+    </invoke>
+    <invoke partnerLink="IberiaPL">
+      <service name="iberiaBilletes:IberiaBilletesService" port="IberiaBilletesPort"/>
+    </invoke>
+    <invoke partnerLink="VuelingPL">
+      <service name="vuelingBilletes:VuelingBilletesService" port="VuelingBilletesPort"/>
+    </invoke>
+  </process>
+  <process name="statusEmpleados:StatusEmpleados">
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="statusEmpleados:StatusEmpleadosService" port="StatusEmpleadosPort"/>
+    </provide>
+  </process>
+  <process name="iberiaBilletes:IberiaBilletes">
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="iberiaBilletes:IberiaBilletesService" port="IberiaBilletesPort"/>
+    </provide>
+  </process>
+  <process name="vuelingBilletes:VuelingBilletes">
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="vuelingBilletes:VuelingBilletesService" port="VuelingBilletesPort"/>
+    </provide>
+  </process>
+</deploy>

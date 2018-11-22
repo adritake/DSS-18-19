@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:p="http://www.w3.org/2001/XMLSchema" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://reservaVuelos" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://statusEmpleados" xmlns:wsdl1="http://iberiaBilletes" xmlns:wsdl2="http://vuelingBilletes" name="ReservaVuelos" targetNamespace="http://reservaVuelos">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="StatusTN">
+    <plnk:role name="StatusRN" portType="wsdl:StatusEmpleados"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="IberiaTN">
+    <plnk:role name="IberiaRN" portType="wsdl1:IberiaBilletes"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="VuelingTN">
+    <plnk:role name="VuelingRN" portType="wsdl2:VuelingBilletes"/>
+  </plnk:partnerLinkType>
+    <import location="StatusEmpleadosArtifacts.wsdl" namespace="http://statusEmpleados"/>
+    <import location="IberiaBilletesArtifacts.wsdl" namespace="http://iberiaBilletes"/>
+    <import location="VuelingBilletesArtifacts.wsdl" namespace="http://vuelingBilletes"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://reservaVuelos">
+
+            <element name="ReservaVuelosRequest">
+                <complexType>
+                    <sequence>
+                        <element name="input" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="ReservaVuelosResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="hacerReserva">
+            	<complexType>
+            		<sequence>
+            			<element name="Nombre" type="string"/>
+            			<element name="Destino" type="string"/>
+            			<element name="FechaSalida" type="dateTime"/>
+            			<element name="FechaRegreso" type="dateTime"/>
+            		</sequence>
+            	</complexType>
+            </element>
+            <element name="hacerReservaResponse">
+            	<complexType>
+            		<sequence>
+            			<element name="out" type="string"/>
+            		</sequence>
+            	</complexType>
+            </element>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="ReservaVuelosRequestMessage">
+        <part element="tns:ReservaVuelosRequest" name="payload"/>
+    </message>
+    <message name="ReservaVuelosResponseMessage">
+        <part element="tns:ReservaVuelosResponse" name="payload"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the ReservaVuelos BPEL process -->
+    <message name="hacerReservaRequest">
+    	<part element="tns:hacerReserva" name="parameters"/>
+    </message>
+    <message name="hacerReservaResponse">
+    	<part element="tns:hacerReservaResponse" name="parameters"/>
+    </message>
+    <portType name="ReservaVuelos">
+        <operation name="process">
+            <input message="tns:ReservaVuelosRequestMessage"/>
+            <output message="tns:ReservaVuelosResponseMessage"/>
+        </operation>
+        <operation name="hacerReserva">
+        	<input message="tns:hacerReservaRequest"/>
+        	<output message="tns:hacerReservaResponse"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="ReservaVuelos">
+        <plnk:role name="ReservaVuelosProvider" portType="tns:ReservaVuelos"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="ReservaVuelosBinding" type="tns:ReservaVuelos">
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    	<operation name="process">
+    		<soap:operation soapAction="http://reservaVuelos/process"/>
+    		<input>
+    			<soap:body use="literal"/>
+    		</input>
+    		<output>
+    			<soap:body use="literal"/>
+    		</output>
+    	</operation>
+    	<operation name="hacerReserva">
+    		<soap:operation soapAction="http://reservaVuelos/hacerReserva"/>
+    		<input>
+    			<soap:body use="literal"/>
+    		</input>
+    		<output>
+    			<soap:body use="literal"/>
+    		</output>
+    	</operation>
+    </binding>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="ReservaVuelosService">
+    	<port binding="tns:ReservaVuelosBinding" name="ReservaVuelosPort">
+    		<soap:address location="http://localhost:8080/ode/processes/ReservaVuelos"/>
+    	</port>
+    </service>
+</definitions>
