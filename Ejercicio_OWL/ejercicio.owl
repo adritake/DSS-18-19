@@ -1,0 +1,30 @@
+<rdf:RDF
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:owl="http://www.w3.org/2002/07/owl#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:plants="http://www.linkeddatatools.com/plants#">
+<!-- OWL Header Omitted For Brevity -->
+<!-- OWL Classes Omitted For Brevity -->
+<!-- Define the family property -->
+<owl:DatatypeProperty rdf:about="http://www.linkeddatatools.com/plants#family"/>
+<!-- Define the similarlyPopularTo property -->
+<owl:ObjectProperty rdf:about="http://www.linkeddatatools.com/plants#similarlyPopularTo"/>
+<!-- Define the Orchid class instance -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/plants#orchid">
+<!-- Orchid is an individual (instance) of the flowers class -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/plants#flowers"/>
+<!-- The orchid is part of the 'Orchidaceae' family -->
+<plants:family>Orchidaceae</plants:family>
+<!-- The orchid is similarly popular to the magnolia -->
+<plants:similarlyPopularTo rdf:resource="http://www.linkeddatatools.com/plants#magnolia"/>
+</rdf:Description>
+<!-- Define the Magnolia class instance -->
+<rdf:Description rdf:about="http://www.linkeddatatools.com/plants#magnolia">
+<!-- Magnolia is an individual (instance) of the flowers class -->
+<rdf:type rdf:resource="http://www.linkeddatatools.com/plants#flowers"/>
+<!-- The magnolia is part of the 'Magnoliaceae' family -->
+<plants:family>Magnoliaceae</plants:family>
+<!-- The magnolia is similarly popular to the orchid -->
+<plants:similarlyPopularTo rdf:resource="http://www.linkeddatatools.com/plants#orchid"/>
+</rdf:Description>
+</rdf:RDF>
