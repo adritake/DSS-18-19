@@ -331,19 +331,29 @@
 
     <!-- http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#CostValuePartition -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#CostValuePartition"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#CostValuePartition">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#Expensive"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#Low-cost"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#Medium-cost"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#CostlyVehicle -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#CostlyVehicle">
-        <rdfs:subClassOf>
+        <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#isExpensive"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#Expensive"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#Expensive"/>
             </owl:Restriction>
-        </rdfs:subClassOf>
+        </owl:equivalentClass>
     </owl:Class>
     
 
@@ -781,11 +791,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:Restriction>
-        <owl:onProperty rdf:resource="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#isExpensive"/>
-        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#Expensive"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/atr_9/ontologies/2018/11/vehicles#CostlyVehicle"/>
-    </owl:Restriction>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
