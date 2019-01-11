@@ -50,3 +50,10 @@ Orquestar, de forma simplificada, el mercadeo entre un comprador y un vendedor d
 [Ejercicio 2](https://github.com/adritake/DSS-18-19/tree/master/practica4DSS_2)
 
 [Imágenes](https://github.com/adritake/DSS-18-19/tree/master/practica4DSS_2/img) del ejercicio.
+
+## Práctica Final
+Desarrollar una aplicación que acceda virtualmente a un catálogo de productos de farmacias en un consorcio y pueda localizar geográficamente la farmacia más cercana a la aplicación para encargar productos que previamente han sido introducidos en el carrito de compra del usuario.
+[Repositorio](https://github.com/samahetfield/DSSAndroid)
+
+ Desarrollo de una aplicación web que dará la funcionalidad a la app y también implementará los casos de uso típicos de una aplicación de administración de farmacias; esta aplicación está diseñada para ser lanzada en un servidor para ser accesible desde clientes de farmacias desde la web. Incluir y eliminar productos en el catálogo solo puede ser hecho por personal autorizado.
+ [Repositorio](https://github.com/adritake/DSSJava)
